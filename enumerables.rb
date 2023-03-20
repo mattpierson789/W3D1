@@ -110,13 +110,33 @@ end
 
     def my_flatten
         #Base case: not array
-        return 
+
+        new_array = []
+
+        return new_array << self  if !self.instance_of?(Array)   #check if self is not an array 
+        
+        # return self if self.length == 1 && self.instance_of?(Array)   #check if self is an array of length 1
+
+        self.my_each do |ele|
+
+            if ele.instance_of?(Array)                                  #check if ele is an array
+                new_array += ele.my_flatten
+            else 
+                new_array << ele
+            end 
+
+            
+        end 
+
+    
+        return new_array 
+
     end
 
     puts
     puts "my_flatten"
     p [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten # => [1, 2, 3, 4, 5, 6, 7, 8]
-
+    p [1,[2,3]].my_flatten
 
 
 

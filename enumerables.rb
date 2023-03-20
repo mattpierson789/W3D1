@@ -235,7 +235,26 @@ p a.my_join         # => "abcd"
 p a.my_join("$")    # => "a$b$c$d"
 
 
+# my_reverse
+# Write a my_reverse method that returns a new array containing 
+# all the elements of the original array in reverse order.
 
+def my_reverse
+    result_array = []
+    i = self.length - 1
+    while i >= 0
+        result_array << self[i]
+        i -= 1
+        # (0..self.length - 1).my_each do |i| #for each index in self
+
+        # end
+    end
+    result_array
+end
+
+puts
+p [ "a", "b", "c" ].my_reverse   #=> ["c", "b", "a"]
+p [ 1 ].my_reverse               #=> [1]
 
 
 
